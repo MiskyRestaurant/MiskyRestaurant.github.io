@@ -1,0 +1,46 @@
+# ---- Dependencias ----
+node_modules/
+.pnp
+.pnp.*
+
+# ---- Build / cache de Next.js ----
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# ---- Variables de entorno (contienen secretos) ----
+.env
+.env.*
+!.env.example
+
+# ---- Archivos grandes excluidos (superan el límite de 100 MB de GitHub) ----
+# El manual de marca (106 MB) se guarda aparte, fuera del repo.
+WEB RESTAURANT/Misky Peruvian Cousines_Manual de Marca.pdf
+
+# ---- Logs ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ---- Sistema operativo ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Editores ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# ---- Docker ----
+# (los archivos docker SÍ se versionan; aquí solo overrides locales)
+docker-compose.override.yml
+
+# ---- Otros ----
+.vercel
+coverage/
+*.pem

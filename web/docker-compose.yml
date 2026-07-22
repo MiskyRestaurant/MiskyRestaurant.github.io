@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: misky_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: misky
+      POSTGRES_PASSWORD: misky_secret
+      POSTGRES_DB: misky
+    volumes:
+      - misky_pgdata:/var/lib/postgresql/data
+    ports:
+      # Expuesto al host en 5544 para herramientas locales (p. ej. `npx prisma studio`).
+      # Se usa 5544 porque 5432/5433 ya están ocupados por otros contenedores.
+      - "5544:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U misky -d misky"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: misky_app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Dentro de la red de compose el host de la BD es "db".
+      DATABASE_URL: "postgresql://misky:misky_secret@db:5432/misky?schema=public"
+      # Estos valores pueden sobreescribirse con un archivo .env junto al compose.
+      AUTH_SECRET: "${AUTH_SECRET:-misky-prod-secret-cambia-esto-por-uno-aleatorio-de-32+}"
+      ADMIN_EMAIL: "${ADMIN_EMAIL:-admin@misky.pe}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-misky2026}"
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+
+volumes:
+  misky_pgdata:
