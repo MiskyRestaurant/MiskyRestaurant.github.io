@@ -40,6 +40,9 @@ services:
       NODE_ENV: production
     expose:
       - "3000"
+    volumes:
+      # Fotos subidas desde el admin: persisten aunque se reconstruya la imagen.
+      - misky_uploads:/app/public/uploads
 
   caddy:
     image: caddy:2-alpine
@@ -59,5 +62,6 @@ services:
 
 volumes:
   misky_pgdata:
+  misky_uploads:
   caddy_data:
   caddy_config:

@@ -36,6 +36,10 @@ services:
       NODE_ENV: production
     ports:
       - "3000:3000"
+    volumes:
+      # Fotos subidas desde el admin: persisten aunque se reconstruya la imagen.
+      - misky_uploads:/app/public/uploads
 
 volumes:
   misky_pgdata:
+  misky_uploads:

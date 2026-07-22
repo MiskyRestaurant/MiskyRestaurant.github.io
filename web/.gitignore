@@ -36,6 +36,10 @@ yarn-error.log*
 !.env.example
 !.env.prod.example
 
+# imágenes subidas por el admin (contenido del sitio, no código)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 # vercel
 .vercel
 

@@ -217,6 +217,26 @@ function ItemForm({
   const item = editing.mode === "edit" ? editing.item : null;
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
+  const [imageUrl, setImageUrl] = useState(item?.image ?? "");
+  const [uploading, setUploading] = useState(false);
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setError("");
+    const fd = new FormData();
+    fd.append("file", file);
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    const data = await res.json();
+    setUploading(false);
+    e.target.value = ""; // permite volver a elegir el mismo archivo
+    if (!res.ok) {
+      setError(data.error ?? "No se pudo subir la imagen.");
+      return;
+    }
+    setImageUrl(data.url);
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -287,7 +307,7 @@ function ItemForm({
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-misky-ink mb-1">
-                Precio (S/)
+                Precio ($)
               </label>
               <input
                 name="price"
@@ -320,15 +340,55 @@ function ItemForm({
 
           <div>
             <label className="block text-sm font-medium text-misky-ink mb-1">
-              URL de imagen (opcional)
+              Foto del plato (opcional)
             </label>
-            <input
-              name="image"
-              type="url"
-              defaultValue={item?.image ?? ""}
-              placeholder="https://..."
-              className={inputClass}
-            />
+            <div className="flex items-start gap-4">
+              <div className="relative h-24 w-24 shrink-0 rounded-xl overflow-hidden bg-misky-cream border border-misky-sand/60">
+                {imageUrl ? (
+                  <Image
+                    src={imageUrl}
+                    alt="Vista previa"
+                    fill
+                    sizes="96px"
+                    className="object-cover"
+                  />
+                ) : (
+                  <span className="absolute inset-0 grid place-items-center text-3xl text-misky-ink-soft/40">
+                    🍽️
+                  </span>
+                )}
+              </div>
+              <div className="flex-1 space-y-2">
+                <label className="inline-block cursor-pointer rounded-full bg-misky-ink/5 px-4 py-2 text-sm font-semibold text-misky-ink hover:bg-misky-ink/10 transition-colors">
+                  {uploading
+                    ? "Subiendo..."
+                    : imageUrl
+                      ? "Cambiar foto"
+                      : "Subir foto"}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFile}
+                    disabled={uploading}
+                    className="hidden"
+                  />
+                </label>
+                {imageUrl && (
+                  <button
+                    type="button"
+                    onClick={() => setImageUrl("")}
+                    className="block text-xs text-misky-red hover:underline"
+                  >
+                    Quitar foto
+                  </button>
+                )}
+                <p className="text-xs text-misky-ink-soft">
+                  JPG, PNG o WEBP. Máximo 5 MB.
+                </p>
+              </div>
+            </div>
+            {/* La foto se guarda como ruta/URL en este campo oculto. */}
+            <input type="hidden" name="image" value={imageUrl} />
           </div>
 
           <div className="flex flex-wrap gap-4 pt-1">
