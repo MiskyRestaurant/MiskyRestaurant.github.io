@@ -1,0 +1,83 @@
+QUE HACE FALTA PARA PONER LA WEB EN INTERNET
+Misky Peruvian Cuisines - 27 de julio de 2026
+
+
+La pagina web ya esta terminada. Falta un ultimo paso: contratar un
+servidor en la nube, que es el espacio donde va a vivir la pagina para
+que cualquiera pueda verla.
+
+Estuvimos revisando si el servicio que usted ya tiene con APN Tech podia
+servir para eso. La respuesta es que no. Le explico por que.
+
+
+POR QUE APN TECH NO SIRVE PARA ESTO
+
+Pensemos en el restaurante. Usted tiene un local, una direccion, y ademas
+aparece en guias que le dicen a la gente donde encontrarlo. En internet
+pasa lo mismo: el servidor en la nube es el local, el dominio es la
+direccion, y APN Tech son las guias.
+
+APN Tech toma sus datos (nombre, direccion, telefono, horarios) y los
+reparte por Google, Apple, Bing y otros directorios. Eso funciona bien y
+conviene mantenerlo. Pero una guia le dice a la gente donde esta su
+local; no le da un local.
+
+La pagina que se ve en miskyperuviancuisines.online no es una web propia:
+es una ficha automatica que ellos generan, con la misma plantilla para
+todos sus clientes y su logo arriba. No se puede modificar y no tiene la
+carta, ni las fotos de los platos, ni las reservas, ni el panel de
+administracion. APN Tech no ofrece alojamiento de paginas web ni venta de
+dominios; sencillamente se dedica a otra cosa.
+
+
+SOBRE LA DEMORA
+
+La entrega tardo mas de lo previsto porque dedicamos tiempo a investigar
+esto. Como usted ya pagaba APN Tech, valia la pena comprobar si podiamos
+aprovecharlo y ahorrarle un gasto. Revisamos su cuenta y el servicio a
+fondo hasta tener la certeza de que no era posible.
+
+
+LO QUE HAY QUE CONTRATAR
+
+Son dos cosas, y las dos van a nombre suyo para que usted sea la dueña:
+
+1. El dominio: el nombre de la pagina, por ejemplo
+   miskyperuviancuisines.com. Unos 15 dolares al año.
+
+2. El servidor en la nube: se alquila a una empresa que tiene las
+   computadoras encendidas las 24 horas del dia, todos los dias, en sus
+   propios centros de datos. Unos 6 dolares al mes, 72 al año.
+
+Todo funciona en la nube. En el restaurante no hay que comprar ni
+instalar ningun equipo, y no depende de que la computadora del local este
+encendida: la empresa se encarga de que la pagina este siempre disponible.
+
+En total, alrededor de 90 dolares al año. Son precios de referencia;
+antes de contratar nada le presentare las opciones con el precio exacto.
+
+Una posibilidad: el nombre miskyperuviancuisines.online quiza ya este
+registrado a nombre suyo a traves de APN Tech. Voy a averiguarlo, porque
+si es suyo podriamos reutilizarlo y se ahorraria ese gasto.
+
+
+EN QUE LA PUEDO APOYAR
+
+Usted no tiene que entender nada tecnico ni hacerlo sola. La acompaño en
+todo: elegir el proveedor, crear las cuentas junto con usted paso a paso,
+subir la pagina completa y dejarla segura, registrar la nueva direccion
+en APN Tech para que la repartan a los directorios, enseñarle a manejar
+el panel para cambiar platos y precios, y atender cualquier cambio o
+problema mas adelante.
+
+
+PROXIMOS PASOS
+
+1. Usted me dice si esta de acuerdo con contratar el dominio y el
+   servidor.
+2. Yo averiguo si el nombre .online ya le pertenece.
+3. Creamos las cuentas juntos.
+4. Subo la pagina y se la muestro funcionando en internet.
+
+
+Quedo atento a cualquier duda. Si prefiere, se lo explico por telefono.
