@@ -1,21 +1,20 @@
-QUE HACE FALTA PARA PONER LA WEB EN INTERNET
-Misky Peruvian Cuisines - 27 de julio de 2026
+LA WEB EN INTERNET: DOS OPCIONES
+Misky Peruvian Cuisines - 31 de julio de 2026
 
 
-La pagina web ya esta terminada. Falta un ultimo paso: contratar un
-servidor en la nube, que es el espacio donde va a vivir la pagina para
-que cualquiera pueda verla.
+La pagina web ya esta terminada. Ahora hay que decidir como la ponemos en
+internet, y usted tiene dos caminos: uno sin coste mensual desde ya, y
+otro de pago que le da el control total de la carta.
 
-Estuvimos revisando si el servicio que usted ya tiene con APN Tech podia
-servir para eso. La respuesta es que no. Le explico por que.
+Antes de eso, una aclaracion sobre el servicio que ya tiene contratado.
 
 
 POR QUE APN TECH NO SIRVE PARA ESTO
 
 Pensemos en el restaurante. Usted tiene un local, una direccion, y ademas
 aparece en guias que le dicen a la gente donde encontrarlo. En internet
-pasa lo mismo: el servidor en la nube es el local, el dominio es la
-direccion, y APN Tech son las guias.
+pasa lo mismo: el alojamiento es el local, el dominio es la direccion, y
+APN Tech son las guias.
 
 APN Tech toma sus datos (nombre, direccion, telefono, horarios) y los
 reparte por Google, Apple, Bing y otros directorios. Eso funciona bien y
@@ -25,9 +24,8 @@ local; no le da un local.
 La pagina que se ve en miskyperuviancuisines.online no es una web propia:
 es una ficha automatica que ellos generan, con la misma plantilla para
 todos sus clientes y su logo arriba. No se puede modificar y no tiene la
-carta, ni las fotos de los platos, ni las reservas, ni el panel de
-administracion. APN Tech no ofrece alojamiento de paginas web ni venta de
-dominios; sencillamente se dedica a otra cosa.
+carta ni las fotos de los platos. APN Tech no ofrece alojamiento de
+paginas web ni venta de dominios; sencillamente se dedica a otra cosa.
 
 
 SOBRE LA DEMORA
@@ -38,46 +36,83 @@ aprovecharlo y ahorrarle un gasto. Revisamos su cuenta y el servicio a
 fondo hasta tener la certeza de que no era posible.
 
 
-LO QUE HAY QUE CONTRATAR
+OPCION 1: PUBLICARLA YA, SIN COSTE MENSUAL
 
-Son dos cosas, y las dos van a nombre suyo para que usted sea la dueña:
+Podemos publicar la web ahora mismo, gratis y sin contratar servidor.
+Quedaria completa a la vista del publico: presentacion del restaurante,
+la carta con todos los platos y sus precios, las fotos, los horarios y la
+ubicacion con el mapa. Se puede compartir por WhatsApp, Facebook e
+Instagram, y registrarla en APN Tech para que la repartan a los
+directorios.
 
-1. El dominio: el nombre de la pagina, por ejemplo
-   miskyperuviancuisines.com. Unos 15 dolares al año.
+La unica diferencia es quien hace los cambios: en esta opcion, cuando
+haya que modificar un plato, un precio o una foto, me lo pide a mi y yo
+lo actualizo. Suele estar listo el mismo dia.
 
-2. El servidor en la nube: se alquila a una empresa que tiene las
-   computadoras encendidas las 24 horas del dia, todos los dias, en sus
-   propios centros de datos. Unos 6 dolares al mes, 72 al año.
+Coste: 0 dolares al mes.
 
-Todo funciona en la nube. En el restaurante no hay que comprar ni
-instalar ningun equipo, y no depende de que la computadora del local este
-encendida: la empresa se encarga de que la pagina este siempre disponible.
+Si quiere el codigo QR impreso para las mesas, hace falta comprar el
+nombre propio de la pagina (por ejemplo miskyperuviancuisines.com): unos
+15 dolares al año. Se lo recomiendo aunque empiece por esta opcion, y por
+un motivo practico: si mas adelante pasamos a la opcion 2, el QR ya
+impreso sigue funcionando y no hay que reimprimir nada.
 
-En total, alrededor de 90 dolares al año. Son precios de referencia;
-antes de contratar nada le presentare las opciones con el precio exacto.
 
-Una posibilidad: el nombre miskyperuviancuisines.online quiza ya este
-registrado a nombre suyo a traves de APN Tech. Voy a averiguarlo, porque
-si es suyo podriamos reutilizarlo y se ahorraria ese gasto.
+OPCION 2: CON PANEL DE CONTROL, CUANDO USTED QUIERA
+
+La misma web, mas un panel privado al que usted entra con su correo y su
+contraseña desde el telefono o la computadora. Ahi puede, sin depender de
+nadie y a cualquier hora:
+
+- Cambiar precios
+- Añadir o quitar platos
+- Subir sus propias fotos
+- Marcar un plato como no disponible cuando se acabe
+- Destacar los platos del dia
+
+Para esto si hace falta alquilar un servidor en la nube, porque el panel
+necesita una computadora encendida las 24 horas guardando la informacion.
+Se alquila a una empresa que las tiene en sus propios centros de datos:
+en el restaurante no hay que comprar ni instalar ningun equipo.
+
+Coste: unos 6 dolares al mes (72 al año) del servidor, mas los 15 al año
+del nombre. En total, alrededor de 90 dolares al año.
+
+Son precios de referencia; antes de contratar nada le presentare las
+opciones con el precio exacto.
+
+
+MI RECOMENDACION
+
+Empiece por la opcion 1. La web queda publicada esta semana sin gastar en
+mensualidades, y usted comprueba con calma si le trae clientes. Si con el
+tiempo ve que quiere manejar la carta usted misma, pasamos a la opcion 2
+cuando lo decida: la web es la misma, no hay que rehacer nada y el QR
+impreso se conserva.
+
+Una posibilidad que estoy averiguando: el nombre
+miskyperuviancuisines.online quiza ya este registrado a nombre suyo a
+traves de APN Tech. Si es suyo, podriamos reutilizarlo y se ahorraria
+tambien esos 15 dolares.
 
 
 EN QUE LA PUEDO APOYAR
 
 Usted no tiene que entender nada tecnico ni hacerlo sola. La acompaño en
-todo: elegir el proveedor, crear las cuentas junto con usted paso a paso,
-subir la pagina completa y dejarla segura, registrar la nueva direccion
-en APN Tech para que la repartan a los directorios, enseñarle a manejar
-el panel para cambiar platos y precios, y atender cualquier cambio o
-problema mas adelante.
+todo: comprar el nombre de la pagina, publicar la web, generar el codigo
+QR listo para imprimir, registrar la direccion en APN Tech para que la
+repartan a los directorios y atender cualquier cambio mas adelante. Si
+algun dia elige la opcion 2, me encargo de contratar y montar el servidor
+y de enseñarle a usar el panel.
 
 
 PROXIMOS PASOS
 
-1. Usted me dice si esta de acuerdo con contratar el dominio y el
-   servidor.
-2. Yo averiguo si el nombre .online ya le pertenece.
-3. Creamos las cuentas juntos.
-4. Subo la pagina y se la muestro funcionando en internet.
+1. Usted me dice si empezamos por la opcion 1.
+2. Me confirma si quiere el codigo QR para las mesas, para saber si
+   compramos el nombre propio ahora.
+3. Yo averiguo si el nombre .online ya le pertenece.
+4. Publico la web y se la muestro funcionando en su telefono.
 
 
 Quedo atento a cualquier duda. Si prefiere, se lo explico por telefono.
