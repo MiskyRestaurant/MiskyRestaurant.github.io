@@ -21,12 +21,15 @@ todos los comandos de mantenimiento del sistema.
 
 | Ruta | Descripción |
 |------|-------------|
-| `/` | Web pública: hero, nosotros, especialidades, carta, galería, reservas, ubicación |
-| `/admin` | Panel — gestión de reservas (confirmar / cancelar / eliminar) |
+| `/` | Web pública: hero, nosotros, especialidades, carta, galería, ubicación |
+| `/admin` | Redirige a `/admin/menu` |
 | `/admin/menu` | Panel — CRUD de la carta (crear, editar, destacar, disponibilidad, subir fotos) |
 | `/admin/login` | Acceso al panel |
-| `POST /api/reservations` | Crea una reserva (público) |
+| `POST /api/admin/upload` | Sube la foto de un plato (solo admin) |
 | `POST /api/auth/login` · `logout` | Sesión del admin |
+
+> La web no tiene formulario de reservas: los clientes llaman al teléfono que
+> figura en la sección de Ubicación y en el pie de página.
 
 ---
 
@@ -257,8 +260,9 @@ docker run --rm -v web_misky_uploads:/data -v $(pwd):/backup alpine \
   tar czf /backup/uploads-$(date +%F).tar.gz -C /data .
 ```
 
-> El nombre real del volumen lleva el prefijo del proyecto. Compruébalo con
-> `docker volume ls | grep uploads`.
+> El nombre `web_misky_uploads` es el que Docker asigna al estar el
+> `docker-compose.yml` dentro del directorio `web/`. Si clonas el repositorio en
+> otra ruta, compruébalo con `docker volume ls | grep uploads`.
 
 ### Cambiar la contraseña del administrador
 

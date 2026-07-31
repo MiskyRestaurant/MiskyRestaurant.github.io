@@ -5,10 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 
-const NAV = [
-  { href: "/admin", label: "Reservas" },
-  { href: "/admin/menu", label: "Carta" },
-];
+const NAV = [{ href: "/admin/menu", label: "Carta" }];
 
 export default function AdminShell({
   userName,
@@ -41,10 +38,7 @@ export default function AdminShell({
             />
             <nav className="hidden sm:flex items-center gap-1">
               {NAV.map((n) => {
-                const active =
-                  n.href === "/admin"
-                    ? pathname === "/admin"
-                    : pathname.startsWith(n.href);
+                const active = pathname.startsWith(n.href);
                 return (
                   <Link
                     key={n.href}
@@ -85,10 +79,7 @@ export default function AdminShell({
         {/* Nav móvil */}
         <nav className="sm:hidden flex items-center gap-1 px-4 pb-3">
           {NAV.map((n) => {
-            const active =
-              n.href === "/admin"
-                ? pathname === "/admin"
-                : pathname.startsWith(n.href);
+            const active = pathname.startsWith(n.href);
             return (
               <Link
                 key={n.href}

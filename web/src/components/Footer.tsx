@@ -8,7 +8,6 @@ const NAV = [
   { href: "#nosotros", key: "about" },
   { href: "#carta", key: "menu" },
   { href: "#galeria", key: "gallery" },
-  { href: "#reservas", key: "reserve" },
   { href: "#ubicacion", key: "location" },
 ] as const;
 

@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
-import type { ReservationStatus } from "@prisma/client";
 
 /** Exige sesión válida; redirige al login si no la hay. */
 async function requireSession() {
@@ -14,23 +13,8 @@ async function requireSession() {
 }
 
 function refresh() {
-  revalidatePath("/admin");
   revalidatePath("/admin/menu");
   revalidatePath("/"); // la home consume la carta
-}
-
-/* ----------------------------- Reservas ----------------------------- */
-
-export async function setReservationStatus(id: number, status: ReservationStatus) {
-  await requireSession();
-  await prisma.reservation.update({ where: { id }, data: { status } });
-  refresh();
-}
-
-export async function deleteReservation(id: number) {
-  await requireSession();
-  await prisma.reservation.delete({ where: { id } });
-  refresh();
 }
 
 /* ------------------------------ Carta ------------------------------- */

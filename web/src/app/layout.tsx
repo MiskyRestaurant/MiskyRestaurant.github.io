@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Misky Peruvian Cuisines",
   },
   description:
-    "Misky Peruvian Cuisines — auténtica cocina peruana en Battle Creek, Michigan. Pollo a la brasa, ceviche, lomo saltado, ají de gallina y más. Reserva tu mesa.",
+    "Misky Peruvian Cuisines — auténtica cocina peruana en Battle Creek, Michigan. Pollo a la brasa, ceviche, lomo saltado, ají de gallina y más. Ven a visitarnos.",
   keywords: [
     "restaurante peruano",
     "cocina peruana",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Misky Peruvian Cuisines",
     description:
-      "Auténtica cocina peruana en Battle Creek, Michigan. Reserva tu mesa.",
+      "Auténtica cocina peruana en Battle Creek, Michigan. Ven a visitarnos.",
     type: "website",
     locale: "es_US",
   },

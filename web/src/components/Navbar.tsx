@@ -67,12 +67,6 @@ export default function Navbar() {
               </Link>
             ))}
             <LanguageToggle solid={solid} />
-            <Link
-              href="#reservas"
-              className="rounded-full bg-misky-red px-5 py-2.5 font-label uppercase tracking-wide text-sm font-semibold text-white shadow-md hover:bg-misky-red-dark transition-colors"
-            >
-              {t.nav.reserve}
-            </Link>
           </nav>
 
           {/* Lado derecho móvil: idioma + hamburguesa */}
@@ -121,13 +115,6 @@ export default function Navbar() {
               {t.nav[l.key]}
             </Link>
           ))}
-          <Link
-            href="#reservas"
-            onClick={() => setOpen(false)}
-            className="mt-1 rounded-full bg-misky-red px-5 py-3 text-center font-label uppercase tracking-wide text-sm font-semibold text-white"
-          >
-            {t.nav.reserveTable}
-          </Link>
         </nav>
       </div>
     </header>

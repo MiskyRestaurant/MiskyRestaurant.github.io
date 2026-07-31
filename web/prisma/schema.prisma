@@ -36,26 +36,6 @@ model MenuItem {
   updatedAt   DateTime @updatedAt
 }
 
-/// Solicitudes de reserva enviadas desde la web
-model Reservation {
-  id        Int               @id @default(autoincrement())
-  name      String
-  email     String
-  phone     String
-  date      String // YYYY-MM-DD
-  time      String // HH:mm
-  guests    Int
-  notes     String?
-  status    ReservationStatus @default(PENDING)
-  createdAt DateTime          @default(now())
-}
-
-enum ReservationStatus {
-  PENDING
-  CONFIRMED
-  CANCELLED
-}
-
 /// Usuario del panel de administración
 model AdminUser {
   id        Int      @id @default(autoincrement())

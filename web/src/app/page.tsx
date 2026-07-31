@@ -5,7 +5,6 @@ import About from "@/components/About";
 import Featured from "@/components/Featured";
 import Menu from "@/components/Menu";
 import Gallery from "@/components/Gallery";
-import Reservation from "@/components/Reservation";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
 import { getMenu, getFeatured } from "@/lib/data";
@@ -52,7 +51,6 @@ export default async function Home() {
           }))}
         />
         <Gallery />
-        <Reservation />
         <Location />
       </main>
       <Footer />

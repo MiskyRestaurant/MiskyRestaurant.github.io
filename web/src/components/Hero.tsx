@@ -63,14 +63,8 @@ export default function Hero() {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
-            href="#reservas"
-            className="w-full sm:w-auto rounded-full bg-misky-red px-8 py-4 font-label uppercase tracking-wide text-sm font-semibold text-white shadow-lg hover:bg-misky-red-dark transition-transform hover:scale-[1.03]"
-          >
-            {t.hero.reserve}
-          </Link>
-          <Link
             href="#carta"
-            className="w-full sm:w-auto rounded-full border-2 border-misky-cream/70 px-8 py-4 font-label uppercase tracking-wide text-sm font-semibold text-misky-cream hover:bg-misky-cream hover:text-misky-ink transition-colors"
+            className="w-full sm:w-auto rounded-full bg-misky-red px-8 py-4 font-label uppercase tracking-wide text-sm font-semibold text-white shadow-lg hover:bg-misky-red-dark transition-transform hover:scale-[1.03]"
           >
             {t.hero.viewMenu}
           </Link>
