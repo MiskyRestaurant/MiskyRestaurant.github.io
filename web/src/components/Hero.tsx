@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
 import { asset } from "@/lib/asset";
+import { irASeccion } from "@/lib/scroll";
 
 export default function Hero() {
   const { t } = useLang();
@@ -63,12 +63,13 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link
+          <a
             href="#carta"
+            onClick={(e) => irASeccion(e, "#carta")}
             className="w-full sm:w-auto rounded-full bg-misky-red px-8 py-4 font-label uppercase tracking-wide text-sm font-semibold text-white shadow-lg hover:bg-misky-red-dark transition-transform hover:scale-[1.03]"
           >
             {t.hero.viewMenu}
-          </Link>
+          </a>
         </motion.div>
       </div>
 

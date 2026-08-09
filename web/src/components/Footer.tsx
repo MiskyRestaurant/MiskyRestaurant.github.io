@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { asset } from "@/lib/asset";
+import { irASeccion } from "@/lib/scroll";
 
 const NAV = [
   { href: "#nosotros", key: "about" },
@@ -43,12 +43,13 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <Link
+                  <a
                     href={n.href}
+                    onClick={(e) => irASeccion(e, n.href)}
                     className="text-misky-cream/80 hover:text-misky-yellow transition-colors"
                   >
                     {t.nav[n.key]}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

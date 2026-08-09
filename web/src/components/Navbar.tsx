@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { asset } from "@/lib/asset";
+import { irASeccion } from "@/lib/scroll";
 import LanguageToggle from "./LanguageToggle";
 
 const LINKS = [
@@ -41,7 +41,12 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-20 items-center justify-between">
-          <Link href="#inicio" className="flex items-center" aria-label={t.nav.home}>
+          <a
+            href="#inicio"
+            onClick={(e) => irASeccion(e, "#inicio")}
+            className="flex items-center"
+            aria-label={t.nav.home}
+          >
             <Image
               src={asset("/logos/logo-horizontal.png")}
               alt="Misky Peruvian Cuisines"
@@ -50,14 +55,15 @@ export default function Navbar() {
               priority
               className="h-11 w-auto"
             />
-          </Link>
+          </a>
 
           {/* Navegación de escritorio */}
           <nav className="hidden md:flex items-center gap-8">
             {LINKS.map((l) => (
-              <Link
+              <a
                 key={l.href}
                 href={l.href}
+                onClick={(e) => irASeccion(e, l.href)}
                 className={`font-label uppercase tracking-wide text-sm font-medium transition-colors ${
                   solid
                     ? "text-misky-ink hover:text-misky-red"
@@ -65,7 +71,7 @@ export default function Navbar() {
                 }`}
               >
                 {t.nav[l.key]}
-              </Link>
+              </a>
             ))}
             <LanguageToggle solid={solid} />
           </nav>
@@ -107,14 +113,17 @@ export default function Navbar() {
       >
         <nav className="flex flex-col gap-1 px-4 pb-4">
           {LINKS.map((l) => (
-            <Link
+            <a
               key={l.href}
               href={l.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                setOpen(false);
+                irASeccion(e, l.href);
+              }}
               className="rounded-lg px-4 py-3 font-label uppercase tracking-wide text-sm font-medium text-misky-ink hover:bg-misky-cream-dark transition-colors"
             >
               {t.nav[l.key]}
-            </Link>
+            </a>
           ))}
         </nav>
       </div>
