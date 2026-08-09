@@ -35,13 +35,15 @@ export default function PaginaQR() {
           className="mx-auto h-40 w-auto"
         />
 
-        <p className="eyebrow mt-8 text-misky-gold">Escanea con tu móvil</p>
+        {/* Inglés primero: es el idioma por defecto de la web y el de la
+            mayoría de quien va a escanear esto en Battle Creek. */}
+        <p className="eyebrow mt-8 text-misky-gold">Scan with your phone</p>
         <h1 className="mt-2 font-display text-4xl font-extrabold leading-tight text-misky-ink">
-          Nuestra carta,
-          <span className="block text-misky-red">en tu teléfono</span>
+          Our menu,
+          <span className="block text-misky-red">on your phone</span>
         </h1>
         <p className="mt-2 font-label text-lg uppercase tracking-wide text-misky-ink-soft">
-          Scan for our menu
+          Escanea para ver la carta
         </p>
 
         {/* El QR: fondo blanco y margen amplio para que la cámara lo lea bien. */}

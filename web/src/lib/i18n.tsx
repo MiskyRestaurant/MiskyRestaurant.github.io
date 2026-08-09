@@ -279,9 +279,12 @@ type LangContextValue = {
 const LangContext = createContext<LangContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("es");
+  // El restaurante está en Michigan: la mayoría de quien entra lee en inglés,
+  // así que ese es el idioma de partida. El interruptor de la barra superior
+  // permite pasar a español en cualquier momento.
+  const [lang, setLangState] = useState<Lang>("en");
 
-  // Al montar, recuperar preferencia guardada. Arrancamos siempre en "es"
+  // Al montar, recuperar preferencia guardada. Arrancamos siempre en "en"
   // (igual en servidor y cliente para evitar desajustes de hidratación) y, ya
   // en el cliente, ajustamos al idioma persistido.
   useEffect(() => {

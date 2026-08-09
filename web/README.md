@@ -32,7 +32,10 @@ pestaña **Actions** de GitHub.
 - **Next.js 16** con `output: "export"` (App Router, React 19)
 - **Tailwind CSS v4** — paleta y tipografía del manual de marca
 - **Framer Motion** — animaciones
-- Idioma **español / inglés** con un interruptor en la barra superior
+- Bilingüe: arranca en **inglés** (el restaurante está en Michigan) y el
+  interruptor de la barra superior cambia a español. La elección se recuerda en
+  el navegador de cada visitante. El idioma de partida se fija en el
+  `useState` de `LanguageProvider`, en `src/lib/i18n.tsx`.
 
 ### Secciones de la web
 

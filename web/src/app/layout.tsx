@@ -22,28 +22,37 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+// El título y la descripción son fijos: los buscadores los leen una sola vez y
+// no cambian con el interruptor de idioma. Van en inglés, como la web, pero las
+// palabras clave cubren los dos idiomas para no perder las búsquedas en español.
 export const metadata: Metadata = {
   title: {
-    default: "Misky Peruvian Cuisines | Auténtica cocina peruana",
+    default:
+      "Misky Peruvian Cuisines | Authentic Peruvian Food in Battle Creek, MI",
     template: "%s | Misky Peruvian Cuisines",
   },
   description:
-    "Misky Peruvian Cuisines — auténtica cocina peruana en Battle Creek, Michigan. Pollo a la brasa, ceviche, lomo saltado, ají de gallina y más. Ven a visitarnos.",
+    "Misky Peruvian Cuisines — authentic Peruvian food in Battle Creek, Michigan. Rotisserie chicken, ceviche, lomo saltado, ají de gallina and more. Come visit us.",
   keywords: [
-    "restaurante peruano",
-    "cocina peruana",
+    "Peruvian restaurant",
+    "Peruvian food",
+    "Battle Creek",
+    "Michigan",
+    "rotisserie chicken",
     "ceviche",
     "lomo saltado",
-    "pisco sour",
+    "restaurante peruano",
+    "comida peruana",
+    "pollo a la brasa",
     "Misky",
-    "Peruvian Cuisines",
   ],
   openGraph: {
     title: "Misky Peruvian Cuisines",
     description:
-      "Auténtica cocina peruana en Battle Creek, Michigan. Ven a visitarnos.",
+      "Authentic Peruvian food in Battle Creek, Michigan. Come visit us.",
     type: "website",
-    locale: "es_US",
+    locale: "en_US",
+    alternateLocale: "es_US",
   },
   icons: {
     icon: asset("/logos/isotipo.png"),
@@ -57,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${bitter.variable} ${oswald.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
