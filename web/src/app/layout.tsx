@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bitter, Oswald, Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
+import { asset } from "@/lib/asset";
 
 const bitter = Bitter({
   variable: "--font-bitter",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     locale: "es_US",
   },
   icons: {
-    icon: "/logos/isotipo.png",
+    icon: asset("/logos/isotipo.png"),
   },
 };
 

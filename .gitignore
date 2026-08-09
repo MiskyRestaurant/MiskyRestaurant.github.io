@@ -10,11 +10,9 @@ build/
 dist/
 *.tsbuildinfo
 
-# ---- Variables de entorno (contienen secretos) ----
+# ---- Variables de entorno ----
 .env
 .env.*
-!.env.example
-!.env.prod.example
 
 # ---- Archivos grandes excluidos (superan el límite de 100 MB de GitHub) ----
 # El manual de marca (106 MB) se guarda aparte, fuera del repo.
@@ -36,10 +34,6 @@ desktop.ini
 .vscode/*
 !.vscode/extensions.json
 .idea/
-
-# ---- Docker ----
-# (los archivos docker SÍ se versionan; aquí solo overrides locales)
-docker-compose.override.yml
 
 # ---- Otros ----
 .vercel

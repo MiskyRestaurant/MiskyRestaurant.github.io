@@ -32,13 +32,6 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
-# ...pero sí versionamos las plantillas de ejemplo (sin secretos)
-!.env.example
-!.env.prod.example
-
-# imágenes subidas por el admin (contenido del sitio, no código)
-/public/uploads/*
-!/public/uploads/.gitkeep
 
 # vercel
 .vercel
@@ -46,10 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Base de datos local (SQLite)
-/prisma/*.db
-/prisma/*.db-journal
 
 # Logs de desarrollo
 dev.log

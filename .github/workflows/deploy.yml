@@ -1,0 +1,74 @@
+# Publica la web en GitHub Pages.
+#
+# Cada vez que se sube un cambio a la rama `main`, GitHub compila el sitio
+# estático (`web/out`) y lo publica. No hace falta tener Node ni Docker
+# instalados en el ordenador: todo ocurre en los servidores de GitHub.
+name: Desplegar la web
+
+on:
+  push:
+    branches: [main]
+  # Permite lanzarlo a mano desde la pestaña «Actions» de GitHub.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez; no cancela el que ya esté en marcha.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  compilar:
+    name: Compilar
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar el sitio estático
+        # `base_path` lo calcula la acción anterior: es "/misky-restaurant"
+        # con la URL de github.io y vacío si algún día se usa dominio propio.
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: npm run build
+
+      - name: Evitar que GitHub procese la web con Jekyll
+        run: touch out/.nojekyll
+
+      - name: Subir el resultado
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/out
+
+  desplegar:
+    name: Desplegar
+    needs: compilar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
+import { asset } from "@/lib/asset";
 import LanguageToggle from "./LanguageToggle";
 
 const LINKS = [
@@ -42,7 +43,7 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between">
           <Link href="#inicio" className="flex items-center" aria-label={t.nav.home}>
             <Image
-              src="/logos/logo-horizontal.png"
+              src={asset("/logos/logo-horizontal.png")}
               alt="Misky Peruvian Cuisines"
               width={190}
               height={60}

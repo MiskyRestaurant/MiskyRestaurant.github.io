@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
+import { asset } from "@/lib/asset";
 
 const NAV = [
   { href: "#nosotros", key: "about" },
@@ -26,7 +27,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <Image
-              src="/logos/logo-horizontal.png"
+              src={asset("/logos/logo-horizontal.png")}
               alt="Misky Peruvian Cuisines"
               width={220}
               height={70}
@@ -82,14 +83,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-misky-cream/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-misky-cream/60">
+        <div className="mt-12 pt-6 border-t border-misky-cream/15 text-center sm:text-left text-sm text-misky-cream/60">
           <p>{t.footer.rights}</p>
-          <Link
-            href="/admin"
-            className="hover:text-misky-yellow transition-colors"
-          >
-            {t.footer.admin}
-          </Link>
         </div>
       </div>
     </footer>

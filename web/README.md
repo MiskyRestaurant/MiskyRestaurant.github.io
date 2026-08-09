@@ -1,306 +1,238 @@
 # Misky Peruvian Cuisines — Web
 
-Sitio web del restaurante **Misky Peruvian Cuisines** (Battle Creek, MI), con
-carta dinámica, sistema de reservas y panel de administración.
+Sitio web del restaurante **Misky Peruvian Cuisines** (Battle Creek, MI).
 
-Este README es el **único documento de referencia**: desarrollo, despliegue y
-todos los comandos de mantenimiento del sistema.
+Es una web **estática**: se compila a ficheros HTML, CSS, JS e imágenes y se
+publica en **GitHub Pages**, gratis. No hay servidor, ni base de datos, ni
+Docker. Este README es el único documento de referencia.
 
----
-
-## 1. Stack
-
-- **Next.js 16** (App Router, React 19, Server Components + Server Actions)
-- **Tailwind CSS v4** (sistema de diseño según el manual de marca)
-- **Prisma 6 + PostgreSQL**
-- **Auth propia** con `jose` (JWT en cookie httpOnly) + `bcryptjs`
-- **Framer Motion** (animaciones)
-- **Docker + Caddy** (app, base de datos y HTTPS automático en contenedores)
-
-### Rutas
-
-| Ruta | Descripción |
-|------|-------------|
-| `/` | Web pública: hero, nosotros, especialidades, carta, galería, ubicación |
-| `/admin` | Redirige a `/admin/menu` |
-| `/admin/menu` | Panel — CRUD de la carta (crear, editar, destacar, disponibilidad, subir fotos) |
-| `/admin/login` | Acceso al panel |
-| `POST /api/admin/upload` | Sube la foto de un plato (solo admin) |
-| `POST /api/auth/login` · `logout` | Sesión del admin |
-
-> La web no tiene formulario de reservas: los clientes llaman al teléfono que
-> figura en la sección de Ubicación y en el pie de página.
+- **Web publicada:** https://vannicin.github.io/misky-restaurant/
+- **Cartel del QR:** https://vannicin.github.io/misky-restaurant/qr/
 
 ---
 
-## 2. Desarrollo local
-
-Requiere **Docker Desktop** instalado y corriendo.
-
-```bash
-docker compose up -d --build      # construye y levanta app + PostgreSQL
-```
-
-En el primer arranque aplica las migraciones y siembra la base automáticamente
-(15 platos + usuario admin). Luego:
-
-- Web pública → http://localhost:3000
-- Panel admin → http://localhost:3000/admin/login
-
-Comandos útiles en local:
-
-```bash
-docker compose logs -f app        # ver logs de la app
-docker compose down               # detener (conserva los datos)
-docker compose down -v            # detener y BORRAR la base de datos
-docker compose exec app npx tsx prisma/seed.ts   # re-sembrar (idempotente)
-```
-
-> Los datos persisten en el volumen `misky_pgdata`. Postgres se expone en el
-> host en el puerto **5544** (para `prisma studio` u otras herramientas), porque
-> 5432/5433 suelen estar ocupados por otros contenedores.
-
-### Desarrollo sin Docker (opcional)
-
-Necesitas un PostgreSQL accesible (puedes levantar solo el de compose con
-`docker compose up -d db`) y un `.env` con su `DATABASE_URL`.
-
-```bash
-npm install
-npx prisma migrate dev        # aplica migraciones (y genera el cliente)
-npm run db:seed               # carga categorías, platos y usuario admin
-npm run dev                   # http://localhost:3000
-```
-
-### Credenciales del panel (demo)
+## 1. Cómo funciona
 
 ```
-Correo:      admin@misky.pe
-Contraseña:  misky2026
+editas un fichero  →  git push a la rama main  →  GitHub Actions compila
+                                                        ↓
+                                              GitHub Pages publica la web
 ```
 
-Definidas en `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`) y aplicadas por el seed.
-**Cambiar obligatoriamente en producción**, junto con `AUTH_SECRET`.
+Todo el trabajo lo hace GitHub. Para cambiar la web **no necesitas tener nada
+instalado**: basta con editar el fichero (incluso desde github.com) y guardar.
+En 1–2 minutos la web está actualizada.
+
+El workflow que hace esto es [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml).
+Se dispara con cada push a `main` y también se puede lanzar a mano desde la
+pestaña **Actions** de GitHub.
+
+### Stack
+
+- **Next.js 16** con `output: "export"` (App Router, React 19)
+- **Tailwind CSS v4** — paleta y tipografía del manual de marca
+- **Framer Motion** — animaciones
+- Idioma **español / inglés** con un interruptor en la barra superior
+
+### Secciones de la web
+
+Todo está en una sola página (`/`), con anclas de navegación:
+
+| Ancla | Sección |
+|-------|---------|
+| `#inicio` | Portada |
+| `#nosotros` | Nuestra historia |
+| `#especialidades` | Platos destacados |
+| `#carta` | Carta completa, filtrable por categoría |
+| `#galeria` | Galería de fotos con visor a pantalla completa |
+| `#ubicacion` | Horario, contacto y mapa |
+
+Y una página aparte, `/qr`, con el cartel imprimible del código QR.
 
 ---
 
-## 3. Qué hace falta para publicar la web
+## 2. Cambiar la carta (lo más habitual)
 
-La web es una aplicación con servidor y base de datos: **no** se puede subir a
-un hosting de solo ficheros ni a un servicio de fichas de negocio (Google
-Business Profile, APN Tech Prime Listing y similares publican datos del negocio,
-no aplicaciones). Hacen falta dos cosas:
+Toda la carta vive en un único fichero: **[`src/lib/menu.ts`](src/lib/menu.ts)**.
 
-| Pieza | Qué es | Coste orientativo |
-|-------|--------|-------------------|
-| **VPS** | Servidor Linux (Ubuntu 22.04+) con Docker | 5–6 €/mes (Hetzner, DigitalOcean, Contabo) |
-| **Dominio** | Ej. `miskyperuviancuisines.com` | ~12 €/año |
+Se puede editar directamente en github.com: abre el fichero, pulsa el lápiz,
+cambia lo que necesites y pulsa **Commit changes** eligiendo la rama `main`.
 
-Los servicios de listings (APN Tech y compañía) son **complementarios**: una vez
-la web esté online, se pone su URL en la ficha del negocio para que la
-distribuyan a los directorios. No sustituyen al alojamiento.
+Cada plato tiene esta forma:
+
+```ts
+{
+  id: 305,                                  // único; no cambiarlo nunca
+  name: "Cau Cau",                          // nombre del plato
+  description: "Guiso de mondongo con...",  // descripción en español
+  price: 13.99,                             // precio en dólares, sin el $
+  image: IMG.chaufa,                        // foto (opcional)
+  featured: true,                           // sale en «Especialidades» (opcional)
+  spicy: true,                              // muestra el icono 🌶️ (opcional)
+}
+```
+
+**Cambiar un precio** → edita `price`.
+**Quitar un plato de la carta** → borra sus líneas.
+**Añadir un plato** → copia un bloque entero, cámbiale el `id` por un número
+que no exista y ajusta el resto.
+
+> La traducción al inglés de las descripciones está en
+> [`src/lib/i18n.tsx`](src/lib/i18n.tsx), en el mapa `DESC_EN`, indexado por el
+> nombre del plato. Si un plato no está en ese mapa, en inglés se muestra la
+> descripción en español. Los nombres de los platos no se traducen a propósito
+> (son nombres propios).
 
 ---
 
-## 4. Despliegue en producción (primera vez)
+## 3. Cambiar fotos
 
-### 4.1 Apuntar el dominio al servidor
+Las imágenes están en `public/`:
 
-En el panel del registrador del dominio (GoDaddy, Namecheap…), crea dos
-registros **A** apuntando a la IP pública del VPS:
+| Carpeta | Contenido |
+|---------|-----------|
+| `public/images/` | Fotos reales del local (portada, galería, sección «Nosotros») |
+| `public/images/dishes/` | Fotos de los platos |
+| `public/logos/` | Logotipos oficiales |
 
-```
-A    @      <IP_DEL_VPS>
-A    www    <IP_DEL_VPS>
-```
+**Para cambiar la foto de un plato:** sube la nueva imagen a
+`public/images/dishes/` y apunta a ella desde el objeto `IMG` de
+[`src/lib/menu.ts`](src/lib/menu.ts).
 
-Espera a que propague (`nslookup tudominio.com`). Caddy necesita que el DNS ya
-resuelva para poder emitir el certificado HTTPS.
+> Las fotos de `public/images/dishes/` son de archivo (Unsplash), puestas como
+> provisionales hasta tener fotos propias de cada plato. Las de `public/images/`
+> sí son del restaurante.
 
-### 4.2 Preparar el servidor
-
-```bash
-ssh root@<IP_DEL_VPS>
-
-# Docker + plugin de compose
-curl -fsSL https://get.docker.com | sh
-
-# Puertos 80 y 443 abiertos (si usas ufw)
-ufw allow 80,443/tcp && ufw allow OpenSSH && ufw enable
-```
-
-### 4.3 Clonar y configurar
-
-```bash
-git clone <URL_DEL_REPOSITORIO> misky
-cd misky/web
-
-cp .env.prod.example .env
-nano .env          # rellena TODOS los valores
-```
-
-Valores del `.env` de producción:
-
-| Variable | Cómo generarla / qué poner |
-|----------|----------------------------|
-| `DOMAIN` | Tu dominio sin `http://`. Ej. `miskyperuviancuisines.com` |
-| `POSTGRES_PASSWORD` | `openssl rand -base64 24` |
-| `AUTH_SECRET` | `openssl rand -base64 32` |
-| `ADMIN_EMAIL` | Correo real del administrador |
-| `ADMIN_PASSWORD` | Contraseña fuerte (no la de demo) |
-
-> El `.env` **nunca** se sube al repositorio: está en `.gitignore`.
-
-### 4.4 Levantar
-
-```bash
-docker compose -f docker-compose.prod.yml up -d --build
-```
-
-Caddy pide el certificado a Let's Encrypt automáticamente. En 1–2 minutos:
-
-- https://tudominio.com → web pública
-- https://tudominio.com/admin/login → panel
-
-Verifica que todo arrancó bien:
-
-```bash
-docker compose -f docker-compose.prod.yml ps
-docker compose -f docker-compose.prod.yml logs -f
-```
-
-> **Nota:** el `Caddyfile` sirve el dominio de `DOMAIN`. Si quieres que
-> `www.tudominio.com` redirija al dominio principal, añade al final del
-> `Caddyfile`:
-> ```
-> www.{$DOMAIN} {
->     redir https://{$DOMAIN}{uri} permanent
-> }
-> ```
-
-### 4.5 Registrar la web en las fichas del negocio
-
-Con la web ya online, pon la URL en el campo **Website** de:
-
-- Google Business Profile
-- El panel de APN Tech (u otro gestor de listings contratado), para que la
-  propague al resto de directorios.
+**Para cambiar las fotos de la galería:** la lista está en la constante
+`PHOTOS` de [`src/components/Gallery.tsx`](src/components/Gallery.tsx), y sus
+títulos traducidos en `galleryItems`, dentro de `src/lib/i18n.tsx`.
 
 ---
 
-## 5. Operación y mantenimiento
+## 4. Cambiar textos, horario y contacto
 
-Todos los comandos se ejecutan **por SSH, dentro de `misky/web`**. Para no
-repetir el `-f docker-compose.prod.yml` en cada comando, puedes crear un alias
-en el servidor:
-
-```bash
-echo "alias dcp='docker compose -f docker-compose.prod.yml'" >> ~/.bashrc
-source ~/.bashrc
-```
-
-A partir de ahí, `dcp ps`, `dcp logs -f app`, etc.
-
-### Actualizar la web tras un cambio de código
-
-Este es el comando del día a día. Trae los cambios, reconstruye la imagen,
-aplica las migraciones pendientes y reinicia:
-
-```bash
-cd ~/misky/web
-git pull
-docker compose -f docker-compose.prod.yml up -d --build
-```
-
-El entrypoint corre `prisma migrate deploy` y el seed (idempotente) en cada
-arranque, así que **no hay pasos manuales de base de datos**. La caída dura unos
-segundos, mientras el contenedor nuevo sustituye al viejo.
-
-### Comandos frecuentes
-
-| Objetivo | Comando |
-|----------|---------|
-| Estado de los contenedores | `docker compose -f docker-compose.prod.yml ps` |
-| Logs de la app en vivo | `docker compose -f docker-compose.prod.yml logs -f app` |
-| Logs de Caddy (problemas de HTTPS) | `docker compose -f docker-compose.prod.yml logs -f caddy` |
-| Reiniciar solo la app | `docker compose -f docker-compose.prod.yml restart app` |
-| Parar todo (conserva datos) | `docker compose -f docker-compose.prod.yml down` |
-| Volver a levantar | `docker compose -f docker-compose.prod.yml up -d` |
-| Consola SQL | `docker compose -f docker-compose.prod.yml exec db psql -U misky -d misky` |
-| Re-sembrar la carta (idempotente) | `docker compose -f docker-compose.prod.yml exec app npx tsx prisma/seed.ts` |
-| Liberar espacio de imágenes viejas | `docker image prune -f` |
-
-### Copia de seguridad de la base de datos
-
-```bash
-# Backup (queda un .sql con la fecha en el directorio actual)
-docker compose -f docker-compose.prod.yml exec -T db \
-  pg_dump -U misky misky > backup-$(date +%F).sql
-
-# Restaurar desde un backup
-cat backup-2026-07-27.sql | docker compose -f docker-compose.prod.yml exec -T db \
-  psql -U misky -d misky
-```
-
-Automatizar el backup diario a las 3:00 con cron:
-
-```bash
-crontab -e
-# añade esta línea:
-0 3 * * * cd /root/misky/web && docker compose -f docker-compose.prod.yml exec -T db pg_dump -U misky misky > /root/backups/misky-$(date +\%F).sql
-```
-
-### Copia de seguridad de las fotos subidas
-
-Las fotos que se suben desde el panel viven en el volumen `misky_uploads`
-(no en el repositorio), así que necesitan su propia copia:
-
-```bash
-docker run --rm -v web_misky_uploads:/data -v $(pwd):/backup alpine \
-  tar czf /backup/uploads-$(date +%F).tar.gz -C /data .
-```
-
-> El nombre `web_misky_uploads` es el que Docker asigna al estar el
-> `docker-compose.yml` dentro del directorio `web/`. Si clonas el repositorio en
-> otra ruta, compruébalo con `docker volume ls | grep uploads`.
-
-### Cambiar la contraseña del administrador
-
-Edita `ADMIN_PASSWORD` en el `.env` del servidor y borra el usuario para que el
-seed lo vuelva a crear con la nueva contraseña:
-
-```bash
-nano .env      # cambia ADMIN_PASSWORD
-docker compose -f docker-compose.prod.yml exec db \
-  psql -U misky -d misky -c 'DELETE FROM "User";'
-docker compose -f docker-compose.prod.yml up -d --force-recreate app
-```
-
-### Renovación del certificado HTTPS
-
-Automática. Caddy la gestiona solo y guarda los certificados en el volumen
-`caddy_data`. No hay nada que hacer mientras el contenedor `caddy` siga en pie y
-los puertos 80/443 abiertos.
+| Qué | Dónde |
+|-----|-------|
+| Todos los textos de la interfaz, en español e inglés | `src/lib/i18n.tsx` |
+| Horario de apertura | constante `HOURS` en `src/components/Location.tsx` |
+| Dirección y teléfono | constante `CONTACT` en `src/components/Location.tsx` y el pie en `src/components/Footer.tsx` |
+| Enlaces de redes sociales | constante `SOCIAL` en `src/components/Footer.tsx` (ahora apuntan a `#`) |
+| Título y descripción para Google | `metadata` en `src/app/layout.tsx` |
+| Colores y tipografías de marca | bloque `@theme` en `src/app/globals.css` |
 
 ---
 
-## 6. Datos y diseño
+## 5. El código QR
 
-- La **paleta y tipografía** derivan del manual de marca oficial (rojo `#CB2A1F`,
-  oro, amarillo, verde, crema). Definidas en `src/app/globals.css` (`@theme`).
-- Los **logos oficiales** están en `public/logos/`.
-- Las **fotos de los platos**: por defecto se sirven desde Unsplash (dominio
-  autorizado en `next.config.ts`). Desde el panel se pueden subir fotos propias,
-  que se guardan en `public/uploads/` (volumen `misky_uploads` en producción).
+El QR apunta a la web y está generado con corrección de errores alta, así que
+se sigue leyendo aunque el papel se manche o se raye.
+
+| Fichero | Para qué |
+|---------|----------|
+| `public/qr.png` | PNG de 1600 px — imprenta, carteles, vinilos |
+| `public/qr.svg` | Vectorial — escala a cualquier tamaño sin pixelarse |
+| `/qr` (página web) | Cartel A4 listo para imprimir, con logo y dirección |
+
+Para imprimirlo: entra en https://vannicin.github.io/misky-restaurant/qr/ y
+pulsa **Imprimir el cartel**.
+
+Si algún día cambia la dirección de la web, hay que regenerar el QR:
+
+```bash
+npm run qr -- https://la-nueva-direccion.com
+```
 
 ---
 
-## 7. Resolución de problemas
+## 6. Trabajar en local (opcional)
 
-| Síntoma | Causa probable y solución |
-|---------|---------------------------|
-| La web no carga y Caddy repite errores de certificado | El DNS aún no apunta al VPS o los puertos 80/443 están cerrados. Comprueba con `nslookup tudominio.com` y `ufw status`. |
-| `Define AUTH_SECRET en el .env` al levantar | Falta una variable obligatoria en el `.env`. Repasa la tabla del punto 4.3. |
-| La app reinicia en bucle | `docker compose -f docker-compose.prod.yml logs app`. Suele ser `DATABASE_URL` mal formada o una migración fallida. |
-| Cambios que no aparecen tras un `git pull` | Faltó el `--build`: reconstruye con `up -d --build`. |
-| Las fotos subidas desaparecen tras actualizar | El volumen `misky_uploads` no está montado. Verifica el bloque `volumes` del servicio `app`. |
+Solo hace falta si quieres ver los cambios antes de subirlos. Necesitas
+**Node.js 20 o superior** ([nodejs.org](https://nodejs.org), o en Windows
+`winget install OpenJS.NodeJS.LTS`).
+
+```bash
+cd web
+npm install       # solo la primera vez
+npm run dev       # http://localhost:3000
+```
+
+Para comprobar que la versión final compila bien:
+
+```bash
+npm run build     # genera la carpeta out/
+npx serve out     # sírvela en http://localhost:3000
+```
+
+> En local la web se sirve en la raíz (`/`). En GitHub Pages cuelga de
+> `/misky-restaurant/`; de eso se encarga automáticamente la variable
+> `NEXT_PUBLIC_BASE_PATH` que pone el workflow al compilar.
+
+---
+
+## 7. Puesta en marcha de GitHub Pages (una sola vez)
+
+Si Pages aún no está activado en el repositorio:
+
+1. En GitHub, ve a **Settings → Pages**.
+2. En **Build and deployment → Source**, elige **GitHub Actions**.
+3. Haz un push a `main` (o lanza el workflow a mano desde **Actions →
+   Desplegar la web → Run workflow**).
+
+En 1–2 minutos la web estará en
+https://vannicin.github.io/misky-restaurant/.
+
+### Usar un dominio propio (opcional)
+
+Un dominio tipo `miskyperuviancuisines.com` cuesta unos 12 €/año; el
+alojamiento en Pages sigue siendo gratis.
+
+1. En el registrador del dominio, crea estos registros DNS:
+
+   ```
+   A     @    185.199.108.153
+   A     @    185.199.109.153
+   A     @    185.199.110.153
+   A     @    185.199.111.153
+   CNAME www  vannicin.github.io.
+   ```
+
+2. En **Settings → Pages → Custom domain**, escribe el dominio y guarda.
+3. Marca **Enforce HTTPS** cuando GitHub termine de emitir el certificado.
+4. Regenera el QR con la nueva dirección: `npm run qr -- https://tudominio.com`
+   y sube el cambio.
+
+El workflow detecta el dominio propio y compila el sitio sin subcarpeta, sin
+tocar nada más.
+
+---
+
+## 8. Qué ya no está, y por qué
+
+La versión anterior era una aplicación con servidor: PostgreSQL, Prisma, panel
+de administración con login y despliegue con Docker + Caddy en un VPS.
+
+GitHub Pages sirve **solo ficheros**: no puede ejecutar código de servidor ni
+guardar datos. Al pasar la web a estática se han eliminado:
+
+| Se eliminó | Sustituido por |
+|------------|----------------|
+| Base de datos PostgreSQL + Prisma | La carta en `src/lib/menu.ts` |
+| Panel de administración y login | Editar ese fichero y hacer push |
+| Subida de fotos desde el panel | Subir la imagen a `public/images/dishes/` |
+| Docker, Caddy, VPS | GitHub Actions + GitHub Pages (gratis) |
+
+**La consecuencia práctica:** cambiar la carta ya no se hace desde una pantalla
+de administración, sino editando un fichero de texto en GitHub. A cambio, el
+alojamiento pasa a costar 0 € y no hay servidor que mantener, actualizar ni
+vigilar.
+
+---
+
+## 9. Si algo va mal
+
+| Síntoma | Causa probable |
+|---------|----------------|
+| Subí un cambio y la web no cambia | Mira **Actions** en GitHub: si el workflow está en rojo, el mensaje de error dice qué falló. Si está en verde, recarga con Ctrl+F5 (caché del navegador). |
+| El workflow falla al compilar | Casi siempre es un error de sintaxis en `src/lib/menu.ts`: una coma de más, una comilla sin cerrar o una llave sin su pareja. |
+| La web sale sin estilos ni imágenes | El `basePath` no coincide con la URL real. Revisa **Settings → Pages** y vuelve a lanzar el workflow. |
+| El QR lleva a una página que no existe | El QR se generó con otra dirección. Regenéralo: `npm run qr -- <URL correcta>`. |

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { useLang } from "@/lib/i18n";
+import { asset } from "@/lib/asset";
 
 export default function About() {
   const { t } = useLang();
@@ -18,7 +19,7 @@ export default function About() {
         <Reveal className="relative">
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/misky-11.jpeg"
+              src={asset("/images/misky-11.jpeg")}
               alt="Decoración andina dentro de Misky"
               fill
               className="object-cover"
@@ -26,7 +27,7 @@ export default function About() {
           </div>
           <div className="absolute -bottom-8 -right-4 sm:-right-8 w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-4 border-misky-cream hidden sm:block">
             <Image
-              src="/images/misky-6.jpeg"
+              src={asset("/images/misky-6.jpeg")}
               alt="Cerámica peruana tradicional"
               fill
               className="object-cover"

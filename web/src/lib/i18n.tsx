@@ -92,7 +92,6 @@ const es = {
     navTitle: "Navegación",
     followTitle: "Síguenos",
     rights: "© 2026 Misky Peruvian Cuisines. Todos los derechos reservados.",
-    admin: "Acceso administración",
   },
   galleryItems: {
     salon: { title: "Nuestro salón", tag: "Ambiente" },
@@ -181,7 +180,6 @@ const en: Messages = {
     navTitle: "Navigation",
     followTitle: "Follow us",
     rights: "© 2026 Misky Peruvian Cuisines. All rights reserved.",
-    admin: "Admin access",
   },
   galleryItems: {
     salon: { title: "Our dining room", tag: "Ambiance" },

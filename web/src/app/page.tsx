@@ -7,15 +7,12 @@ import Menu from "@/components/Menu";
 import Gallery from "@/components/Gallery";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
-import { getMenu, getFeatured } from "@/lib/data";
+import { MENU, FEATURED } from "@/lib/menu";
 
-// Render dinámico: la carta se lee de la BD en cada petición, por lo que los
-// cambios del admin se reflejan al instante y no se accede a la BD en build.
-export const dynamic = "force-dynamic";
-
-export default async function Home() {
-  const [menu, featured] = await Promise.all([getMenu(), getFeatured()]);
-
+// Sitio 100 % estático: la carta se lee de `src/lib/menu.ts` en tiempo de
+// compilación y se incrusta en el HTML. Para cambiarla, edita ese fichero y
+// sube el cambio; GitHub Actions reconstruye y publica la web.
+export default function Home() {
   return (
     <>
       <Navbar />
@@ -23,33 +20,8 @@ export default async function Home() {
         <Hero />
         <Marquee />
         <About />
-        <Featured
-          items={featured.map((f) => ({
-            id: f.id,
-            name: f.name,
-            description: f.description,
-            price: f.price,
-            image: f.image,
-            spicy: f.spicy,
-            category: { name: f.category.name, slug: f.category.slug },
-          }))}
-        />
-        <Menu
-          categories={menu.map((c) => ({
-            id: c.id,
-            name: c.name,
-            slug: c.slug,
-            items: c.items.map((i) => ({
-              id: i.id,
-              name: i.name,
-              description: i.description,
-              price: i.price,
-              image: i.image,
-              spicy: i.spicy,
-              featured: i.featured,
-            })),
-          }))}
-        />
+        <Featured items={FEATURED} />
+        <Menu categories={MENU} />
         <Gallery />
         <Location />
       </main>

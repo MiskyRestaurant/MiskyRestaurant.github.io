@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { useLang } from "@/lib/i18n";
+import { asset } from "@/lib/asset";
 
 type Photo = {
   src: string;
@@ -17,32 +18,32 @@ type Photo = {
 
 const PHOTOS: Photo[] = [
   {
-    src: "/images/misky-2.jpeg",
+    src: asset("/images/misky-2.jpeg"),
     key: "salon",
     span: "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/images/misky-9.jpeg",
+    src: asset("/images/misky-9.jpeg"),
     key: "cremas",
     span: "col-span-1 row-span-1 lg:col-span-2 lg:row-span-1",
   },
   {
-    src: "/images/misky-16.jpeg",
+    src: asset("/images/misky-16.jpeg"),
     key: "barra",
     span: "col-span-1 row-span-1 lg:col-span-2 lg:row-span-1",
   },
   {
-    src: "/images/misky-1.jpeg",
+    src: asset("/images/misky-1.jpeg"),
     key: "vitrina",
     span: "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/images/misky-12.jpeg",
+    src: asset("/images/misky-12.jpeg"),
     key: "pompones",
     span: "col-span-1 row-span-1 lg:col-span-2 lg:row-span-1",
   },
   {
-    src: "/images/misky-6.jpeg",
+    src: asset("/images/misky-6.jpeg"),
     key: "ceramica",
     span: "col-span-1 row-span-1 lg:col-span-2 lg:row-span-1",
   },

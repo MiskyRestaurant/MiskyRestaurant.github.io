@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
+import { asset } from "@/lib/asset";
 
 export default function Hero() {
   const { t } = useLang();
@@ -15,7 +16,7 @@ export default function Hero() {
       {/* Fondo */}
       <div className="absolute inset-0">
         <Image
-          src="/images/misky-2.jpeg"
+          src={asset("/images/misky-2.jpeg")}
           alt="Interior del restaurante Misky Peruvian Cuisines"
           fill
           priority
