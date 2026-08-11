@@ -6,8 +6,8 @@ Es una web **estática**: se compila a ficheros HTML, CSS, JS e imágenes y se
 publica en **GitHub Pages**, gratis. No hay servidor, ni base de datos, ni
 Docker. Este README es el único documento de referencia.
 
-- **Web publicada:** https://vannicin.github.io/misky-restaurant/
-- **Cartel del QR:** https://vannicin.github.io/misky-restaurant/qr/
+- **Web publicada:** https://miskyrestaurant.github.io/
+- **Cartel del QR:** https://miskyrestaurant.github.io/qr/
 
 ---
 
@@ -136,7 +136,7 @@ se sigue leyendo aunque el papel se manche o se raye.
 | `public/qr.svg` | Vectorial — escala a cualquier tamaño sin pixelarse |
 | `/qr` (página web) | Cartel A4 listo para imprimir, con logo y dirección |
 
-Para imprimirlo: entra en https://vannicin.github.io/misky-restaurant/qr/ y
+Para imprimirlo: entra en https://miskyrestaurant.github.io/qr/ y
 pulsa **Imprimir el cartel**.
 
 Si algún día cambia la dirección de la web, hay que regenerar el QR:
@@ -166,9 +166,10 @@ npm run build     # genera la carpeta out/
 npx serve out     # sírvela en http://localhost:3000
 ```
 
-> En local la web se sirve en la raíz (`/`). En GitHub Pages cuelga de
-> `/misky-restaurant/`; de eso se encarga automáticamente la variable
-> `NEXT_PUBLIC_BASE_PATH` que pone el workflow al compilar.
+> El repositorio se llama `MiskyRestaurant.github.io`, así que GitHub sirve la
+> web en la raíz del dominio, igual que en local. Si algún día se moviera a un
+> repositorio con otro nombre, colgaría de una subcarpeta; de eso se encargaría
+> sola la variable `NEXT_PUBLIC_BASE_PATH` que el workflow calcula al compilar.
 
 ---
 
@@ -182,7 +183,7 @@ Si Pages aún no está activado en el repositorio:
    Desplegar la web → Run workflow**).
 
 En 1–2 minutos la web estará en
-https://vannicin.github.io/misky-restaurant/.
+https://miskyrestaurant.github.io/.
 
 ### Usar un dominio propio (opcional)
 
@@ -196,7 +197,7 @@ alojamiento en Pages sigue siendo gratis.
    A     @    185.199.109.153
    A     @    185.199.110.153
    A     @    185.199.111.153
-   CNAME www  vannicin.github.io.
+   CNAME www  miskyrestaurant.github.io.
    ```
 
 2. En **Settings → Pages → Custom domain**, escribe el dominio y guarda.

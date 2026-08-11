@@ -19,7 +19,7 @@ import QRCode from "qrcode";
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const URL_POR_DEFECTO = "https://vannicin.github.io/misky-restaurant/";
+const URL_POR_DEFECTO = "https://miskyrestaurant.github.io/";
 const url = process.argv[2] ?? URL_POR_DEFECTO;
 
 // Corrección de errores alta (30 %): el QR sigue leyéndose aunque el papel se

@@ -2,8 +2,8 @@
 
 Web del restaurante **Misky Peruvian Cuisines** — Battle Creek, Michigan.
 
-🌐 **https://vannicin.github.io/misky-restaurant/**
-📱 **Cartel del QR para imprimir:** https://vannicin.github.io/misky-restaurant/qr/
+🌐 **https://miskyrestaurant.github.io/**
+📱 **Cartel del QR para imprimir:** https://miskyrestaurant.github.io/qr/
 
 Es un sitio estático publicado gratis en GitHub Pages. Cada push a `main`
 lo recompila y lo publica automáticamente.
