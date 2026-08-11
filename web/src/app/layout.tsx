@@ -32,14 +32,13 @@ export const metadata: Metadata = {
     template: "%s | Misky Peruvian Cuisines",
   },
   description:
-    "Misky Peruvian Cuisines — authentic Peruvian food in Battle Creek, Michigan. Rotisserie chicken, ceviche, lomo saltado, ají de gallina and more. Come visit us.",
+    "Misky Peruvian Cuisines — authentic Peruvian food in Battle Creek, Michigan. Rotisserie chicken, lomo saltado, ají de gallina, chaufa rice and more. Come visit us.",
   keywords: [
     "Peruvian restaurant",
     "Peruvian food",
     "Battle Creek",
     "Michigan",
     "rotisserie chicken",
-    "ceviche",
     "lomo saltado",
     "restaurante peruano",
     "comida peruana",

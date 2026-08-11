@@ -205,8 +205,7 @@ const CATEGORY_EN: Record<string, string> = {
   especialidades: "Misky Specialties",
   "platos-criollos": "Creole Dishes",
   tallarines: "Pasta",
-  "del-mar": "From the Sea",
-  "sopas-guarniciones": "Soups & Sides",
+  guarniciones: "Sides",
   "postres-bebidas": "Desserts & Drinks",
 };
 
@@ -226,38 +225,23 @@ const DESC_EN: Record<string, string> = {
   "Misky Roll Ups": "Crispy stuffed roll-ups, a Misky specialty.",
   "Ají de Gallina":
     "Shredded chicken in a creamy yellow chili, walnut and cheese sauce, with potato and olives.",
-  "Escabeche de Pollo":
-    "Marinated chicken with pickled onions, chili and creole spices.",
   "Olluquito con Carne":
     "Traditional olluco stew with beef and an Andean touch.",
   Carapulcra:
     "Ancestral dried-potato stew with pork, peanut and panca chili.",
-  "Cau Cau": "Tripe stew with potato, yellow chili, mint and turmeric.",
   "Frejoles con Seco":
     "Creamy beans served with cilantro beef stew and rice.",
-  "Causa Limeña (Pollo o Atún)":
-    "Pressed yellow potato with chili, filled with chicken or tuna, with vegetables.",
   Salchipapa: "Classic salchipapa: fries with sausage and house sauces.",
   "Tallarines a la Huancaína":
     "Noodles in a creamy huancaína sauce of yellow chili and cheese, with egg and olive.",
   "Tallarines Verdes":
     "Pasta in a Peruvian-style green basil and spinach sauce.",
-  Ceviche:
-    "Fresh fish (tilapia) and shrimp marinated in lime, chili and red onion, with sweet potato and corn.",
-  "Aguadito de Pollo":
-    "Comforting chicken soup with rice, cilantro and vegetables.",
-  "Sopa Criolla":
-    "Creole soup with noodles, beef, milk and a touch of chili.",
   "Papa a la Huancaína":
     "Boiled potato in a creamy yellow chili and cheese sauce.",
   "Porción de Arroz Chaufa": "Side of wok-tossed chaufa rice.",
   "Porción de Papas Fritas": "Side of golden, crispy fries.",
-  Empanadas: "House baked empanadas, stuffed and golden.",
   Flan: "Smooth homemade flan with caramel.",
-  "Arroz con Leche": "Creamy rice pudding with cinnamon.",
   "German Chocolate Cake": "A slice of German chocolate cake.",
-  "Chicha Morada":
-    "Refreshing purple corn drink with pineapple, cinnamon and lime.",
   "Inca Kola": "Peru's iconic soda, served ice-cold.",
 };
 

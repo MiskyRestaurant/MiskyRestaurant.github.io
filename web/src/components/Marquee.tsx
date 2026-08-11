@@ -1,14 +1,16 @@
 // Platos reales de la carta (nombres propios: se mantienen en español en ES y EN).
+// Si se retira un plato de `src/lib/menu.ts`, hay que quitarlo también de aquí:
+// si no, la web sigue anunciando algo que ya no se sirve.
 const WORDS = [
   "Pollo a la Brasa",
-  "Ceviche",
   "Lomo Saltado",
   "Ají de Gallina",
   "Tallarines a la Huancaína",
-  "Causa Limeña",
-  "Chicha Morada",
+  "Tallarín Saltado",
   "Mostrito",
   "Carapulcra",
+  "Salchipapa",
+  "Arroz Chaufa",
   "Inca Kola",
 ];
 

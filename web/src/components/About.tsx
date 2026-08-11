@@ -5,12 +5,16 @@ import Reveal from "./Reveal";
 import { useLang } from "@/lib/i18n";
 import { asset } from "@/lib/asset";
 
-export default function About() {
+/**
+ * `dishCount` llega calculado desde la carta (`DISH_COUNT`) en vez de escrito a
+ * mano: antes ponía «+25» y se quedó desfasado al retirar platos.
+ */
+export default function About({ dishCount }: { dishCount: number }) {
   const { t } = useLang();
   const STATS = [
     { value: "100%", label: t.about.stat1 },
     { value: "Perú", label: t.about.stat2 },
-    { value: "+25", label: t.about.stat3 },
+    { value: String(dishCount), label: t.about.stat3 },
   ];
   return (
     <section id="nosotros" className="py-24 sm:py-32 bg-misky-cream">

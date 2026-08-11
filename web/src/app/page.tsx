@@ -7,7 +7,7 @@ import Menu from "@/components/Menu";
 import Gallery from "@/components/Gallery";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
-import { MENU, FEATURED } from "@/lib/menu";
+import { MENU, FEATURED, DISH_COUNT } from "@/lib/menu";
 
 // Sitio 100 % estático: la carta se lee de `src/lib/menu.ts` en tiempo de
 // compilación y se incrusta en el HTML. Para cambiarla, edita ese fichero y
@@ -19,7 +19,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Marquee />
-        <About />
+        <About dishCount={DISH_COUNT} />
         <Featured items={FEATURED} />
         <Menu categories={MENU} />
         <Gallery />
