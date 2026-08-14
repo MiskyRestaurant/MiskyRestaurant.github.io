@@ -103,7 +103,7 @@ const CARTA: CategoryInput[] = [
       },
       {
         id: 102,
-        name: "Medio Pollo a la Brasa",
+        name: "1/2 Pollo a la Brasa",
         description: "1/2 pollo a la brasa con papas fritas y ensalada fresca.",
         price: 20.0,
         image: IMG.polloBrasa,
