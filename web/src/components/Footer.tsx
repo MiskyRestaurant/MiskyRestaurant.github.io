@@ -12,10 +12,11 @@ const NAV = [
   { href: "#ubicacion", key: "location" },
 ] as const;
 
+// Solo las redes que el restaurante tiene de verdad. Antes figuraban también
+// Facebook y TikTok apuntando a "#": no llevaban a ninguna parte y al pulsarlas
+// la página saltaba arriba, así que se quitan hasta que existan esas cuentas.
 const SOCIAL = [
-  { label: "Instagram", href: "#" },
-  { label: "Facebook", href: "#" },
-  { label: "TikTok", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/miskyperuvian26" },
 ];
 
 export default function Footer() {
@@ -62,6 +63,8 @@ export default function Footer() {
                 <li key={s.label}>
                   <a
                     href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-misky-cream/80 hover:text-misky-yellow transition-colors"
                   >
                     {s.label}

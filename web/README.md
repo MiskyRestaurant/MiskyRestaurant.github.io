@@ -119,7 +119,7 @@ títulos traducidos en `galleryItems`, dentro de `src/lib/i18n.tsx`.
 | Todos los textos de la interfaz, en español e inglés | `src/lib/i18n.tsx` |
 | Horario de apertura | constante `HOURS` en `src/components/Location.tsx` |
 | Dirección y teléfono | constante `CONTACT` en `src/components/Location.tsx` y el pie en `src/components/Footer.tsx` |
-| Enlaces de redes sociales | constante `SOCIAL` en `src/components/Footer.tsx` (ahora apuntan a `#`) |
+| Enlaces de redes sociales | constante `SOCIAL` en `src/components/Footer.tsx` (solo Instagram; añadir ahí Facebook o TikTok si algún día los abren) |
 | Título y descripción para Google | `metadata` en `src/app/layout.tsx` |
 | Colores y tipografías de marca | bloque `@theme` en `src/app/globals.css` |
 
