@@ -103,9 +103,9 @@ const CARTA: CategoryInput[] = [
       },
       {
         id: 102,
-        name: "Medio Pollo a la Brasa",
-        description: "1/2 pollo a la brasa con papas fritas y ensalada fresca.",
-        price: 17.99,
+        name: "1/4 de Pollo a la Brasa",
+        description: "1/4 de pollo a la brasa con papas fritas y ensalada fresca.",
+        price: 20.0,
         image: IMG.polloBrasa,
       },
       {
@@ -138,7 +138,7 @@ const CARTA: CategoryInput[] = [
         name: "Tallarín Saltado",
         description:
           "Tallarines salteados al wok estilo criollo con carne, verduras y sillao.",
-        price: 16.0,
+        price: 18.0,
         image: IMG.chaufa,
       },
       {
@@ -153,7 +153,7 @@ const CARTA: CategoryInput[] = [
         id: 204,
         name: "Misky Roll Ups",
         description: "Enrollados crujientes rellenos, especialidad de Misky.",
-        price: 13.0,
+        price: 14.0,
         image: IMG.flatbread,
       },
     ],
@@ -168,37 +168,67 @@ const CARTA: CategoryInput[] = [
         name: "Ají de Gallina",
         description:
           "Pollo deshilachado en cremosa salsa de ají amarillo, nueces y queso, con papa y aceitunas.",
-        price: 13.99,
+        price: 15.0,
         image: IMG.ajiGallina,
         featured: true,
         spicy: true,
       },
       {
         id: 303,
-        name: "Olluquito con Carne",
-        description: "Guiso tradicional de olluco con carne y un toque andino.",
-        price: 13.99,
+        name: "Olluquito con Carne o Pollo",
+        description:
+          "Guiso tradicional de olluco con un toque andino, a elegir con carne o con pollo.",
+        price: 16.0,
       },
       {
         id: 304,
         name: "Carapulcra",
         description: "Guiso ancestral de papa seca con cerdo, maní y ají panca.",
-        price: 13.99,
+        price: 15.0,
         spicy: true,
+      },
+      {
+        id: 309,
+        name: "Frejoles",
+        description:
+          "Frejoles cremosos cocinados a fuego lento, servidos con arroz.",
+        price: 14.0,
       },
       {
         id: 306,
         name: "Frejoles con Seco",
         description:
           "Frejoles cremosos acompañados de seco de carne al culantro y arroz.",
-        price: 16.0,
+        price: 20.0,
+      },
+      {
+        id: 310,
+        name: "Seco de Carne",
+        description:
+          "Carne guisada lentamente al culantro y ají amarillo, tierna y jugosa, con arroz.",
+        price: 17.0,
+      },
+      {
+        id: 311,
+        name: "Adobo de Chancho",
+        description:
+          "Cerdo macerado en ají panca y especias, guisado hasta quedar tierno, con arroz.",
+        price: 17.0,
+        spicy: true,
+      },
+      {
+        id: 312,
+        name: "Bistec a lo Pobre",
+        description:
+          "Bistec a la plancha coronado con huevo frito, con plátano frito, papas fritas y arroz.",
+        price: 18.0,
       },
       {
         id: 308,
         name: "Salchipapa",
         description:
           "Clásica salchipapa: papas fritas con salchicha y cremas de la casa.",
-        price: 12.99,
+        price: 14.0,
         image: IMG.salchipapa,
       },
     ],

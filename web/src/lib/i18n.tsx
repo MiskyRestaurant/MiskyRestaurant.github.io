@@ -212,8 +212,8 @@ const CATEGORY_EN: Record<string, string> = {
 const DESC_EN: Record<string, string> = {
   "Family Chicken Combo":
     "Whole rotisserie chicken with potatoes and salad. Perfect for sharing with family.",
-  "Medio Pollo a la Brasa":
-    "Half rotisserie chicken with fries and fresh salad.",
+  "1/4 de Pollo a la Brasa":
+    "Quarter rotisserie chicken with fries and fresh salad.",
   Mostrito:
     "Quarter rotisserie chicken with chaufa rice and fries. The house favorite combo.",
   "Lomo Saltado Misky Style":
@@ -225,12 +225,19 @@ const DESC_EN: Record<string, string> = {
   "Misky Roll Ups": "Crispy stuffed roll-ups, a Misky specialty.",
   "Ají de Gallina":
     "Shredded chicken in a creamy yellow chili, walnut and cheese sauce, with potato and olives.",
-  "Olluquito con Carne":
-    "Traditional olluco stew with beef and an Andean touch.",
+  "Olluquito con Carne o Pollo":
+    "Traditional olluco stew with an Andean touch, your choice of beef or chicken.",
   Carapulcra:
     "Ancestral dried-potato stew with pork, peanut and panca chili.",
+  Frejoles: "Slow-cooked creamy beans served with rice.",
   "Frejoles con Seco":
     "Creamy beans served with cilantro beef stew and rice.",
+  "Seco de Carne":
+    "Beef slow-stewed in cilantro and yellow chili, tender and juicy, with rice.",
+  "Adobo de Chancho":
+    "Pork marinated in panca chili and spices, slow-cooked until tender, with rice.",
+  "Bistec a lo Pobre":
+    "Grilled steak topped with a fried egg, with fried plantain, fries and rice.",
   Salchipapa: "Classic salchipapa: fries with sausage and house sauces.",
   "Tallarines a la Huancaína":
     "Noodles in a creamy huancaína sauce of yellow chili and cheese, with egg and olive.",
