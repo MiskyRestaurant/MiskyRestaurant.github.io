@@ -212,6 +212,8 @@ const CATEGORY_EN: Record<string, string> = {
 const DESC_EN: Record<string, string> = {
   "Family Chicken Combo":
     "Whole rotisserie chicken with potatoes and salad. Perfect for sharing with family.",
+  "Medio Pollo a la Brasa":
+    "Half rotisserie chicken with fries and fresh salad.",
   "1/4 de Pollo a la Brasa":
     "Quarter rotisserie chicken with fries and fresh salad.",
   Mostrito:
