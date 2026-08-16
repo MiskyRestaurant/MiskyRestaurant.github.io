@@ -216,7 +216,6 @@ const CARTA: CategoryInput[] = [
           "Frejoles cremosos cocinados a fuego lento, servidos con arroz.",
         price: 14.0,
         image: IMG.frejoles,
-        featured: true,
       },
       {
         id: 306,
@@ -283,7 +282,6 @@ const CARTA: CategoryInput[] = [
           "Pasta en salsa verde de albahaca y espinaca al estilo peruano.",
         price: 14.0,
         image: IMG.tallarinesVerdes,
-        featured: true,
       },
     ],
   },
@@ -299,7 +297,6 @@ const CARTA: CategoryInput[] = [
           "Papa sancochada bañada en cremosa salsa de ají amarillo y queso.",
         price: 12.0,
         image: IMG.papaHuancaina,
-        featured: true,
       },
       {
         id: 604,
