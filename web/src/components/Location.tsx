@@ -22,7 +22,7 @@ export default function Location() {
     {
       type: "phone" as const,
       label: t.location.phoneLabel,
-      value: "+1 269-316-0383",
+      value: "(269) 313-0383",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function Location() {
                     <p className="eyebrow text-misky-yellow">{c.label}</p>
                     {c.type === "phone" ? (
                       <a
-                        href="tel:+12693160383"
+                        href="tel:+12693130383"
                         className="mt-1 inline-block text-misky-cream/90 hover:text-misky-yellow transition-colors"
                       >
                         {c.value}

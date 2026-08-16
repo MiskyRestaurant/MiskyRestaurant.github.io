@@ -78,10 +78,10 @@ export default function Footer() {
               Battle Creek, MI 49015
               <br />
               <a
-                href="tel:+12693160383"
+                href="tel:+12693130383"
                 className="hover:text-misky-yellow transition-colors"
               >
-                +1 269-316-0383
+                (269) 313-0383
               </a>
             </p>
           </div>

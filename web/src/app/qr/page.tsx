@@ -61,7 +61,7 @@ export default function PaginaQR() {
           <p className="font-semibold text-misky-ink">
             2550 Capital Ave SW Ste 150 · Battle Creek, MI 49015
           </p>
-          <p className="mt-1">+1 269-316-0383</p>
+          <p className="mt-1">(269) 313-0383</p>
         </div>
 
         <div className="mx-auto mt-8 h-2 w-40 rounded-full andean-border" />
