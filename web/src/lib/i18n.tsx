@@ -81,9 +81,12 @@ const es = {
     phoneLabel: "Teléfono",
     closed: "Cerrado",
     mon: "Lunes",
-    tueThu: "Martes – Jueves",
-    friSat: "Viernes – Sábado",
+    tueSat: "Martes – Sábado",
     sun: "Domingo",
+    // El horario va aquí y no en Location.tsx para poder escribirlo en el
+    // formato de cada idioma: 24 h en español, AM/PM en inglés (EE. UU.).
+    tueSatTime: "11:00 – 20:00",
+    sunTime: "11:00 – 18:00",
     mapTitle: "Ubicación de Misky Peruvian Cuisines",
   },
   footer: {
@@ -169,9 +172,10 @@ const en: Messages = {
     phoneLabel: "Phone",
     closed: "Closed",
     mon: "Monday",
-    tueThu: "Tuesday – Thursday",
-    friSat: "Friday – Saturday",
+    tueSat: "Tuesday – Saturday",
     sun: "Sunday",
+    tueSatTime: "11:00 AM – 8:00 PM",
+    sunTime: "11:00 AM – 6:00 PM",
     mapTitle: "Misky Peruvian Cuisines location",
   },
   footer: {
@@ -251,7 +255,9 @@ const DESC_EN: Record<string, string> = {
   "Porción de Papas Fritas": "Side of golden, crispy fries.",
   Flan: "Smooth homemade flan with caramel.",
   "German Chocolate Cake": "A slice of German chocolate cake.",
-  "Inca Kola": "Peru's iconic soda, served ice-cold.",
+  "Inca Kola (Lata)": "Peru's iconic soda in a can, served ice-cold.",
+  "Inca Kola (2 L)":
+    "A 2-liter bottle of Peru's iconic soda, to share at the table.",
 };
 
 /* ------------------------------------------------------------------ */

@@ -251,7 +251,7 @@ const CARTA: CategoryInput[] = [
         name: "Tallarines a la Huancaína",
         description:
           "Tallarines bañados en cremosa salsa huancaína de ají amarillo y queso, con huevo y aceituna.",
-        price: 12.99,
+        price: 14.0,
         image: IMG.tallarinHuancaina,
         featured: true,
       },
@@ -260,7 +260,7 @@ const CARTA: CategoryInput[] = [
         name: "Tallarines Verdes",
         description:
           "Pasta en salsa verde de albahaca y espinaca al estilo peruano.",
-        price: 12.99,
+        price: 14.0,
       },
     ],
   },
@@ -274,20 +274,20 @@ const CARTA: CategoryInput[] = [
         name: "Papa a la Huancaína",
         description:
           "Papa sancochada bañada en cremosa salsa de ají amarillo y queso.",
-        price: 5.99,
+        price: 12.0,
       },
       {
         id: 604,
         name: "Porción de Arroz Chaufa",
         description: "Porción de arroz chaufa salteado al wok.",
-        price: 6.0,
+        price: 10.0,
         image: IMG.chaufa,
       },
       {
         id: 605,
         name: "Porción de Papas Fritas",
         description: "Porción de papas fritas doradas y crujientes.",
-        price: 4.99,
+        price: 7.0,
         image: IMG.fries,
       },
     ],
@@ -301,7 +301,7 @@ const CARTA: CategoryInput[] = [
         id: 701,
         name: "Flan",
         description: "Flan casero suave con caramelo.",
-        price: 4.99,
+        price: 6.0,
         image: IMG.postres,
       },
       {
@@ -313,9 +313,17 @@ const CARTA: CategoryInput[] = [
       },
       {
         id: 705,
-        name: "Inca Kola",
-        description: "La bebida bandera del Perú, bien helada.",
-        price: 2.5,
+        name: "Inca Kola (Lata)",
+        description: "La bebida bandera del Perú, en lata y bien helada.",
+        price: 4.0,
+        image: IMG.incaKola,
+      },
+      {
+        id: 706,
+        name: "Inca Kola (2 L)",
+        description:
+          "Botella de 2 litros de la bebida bandera del Perú, para compartir en la mesa.",
+        price: 12.0,
         image: IMG.incaKola,
       },
     ],

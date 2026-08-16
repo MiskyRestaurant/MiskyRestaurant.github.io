@@ -9,9 +9,8 @@ export default function Location() {
 
   const HOURS = [
     { day: t.location.mon, time: t.location.closed, closed: true },
-    { day: t.location.tueThu, time: "11:00 – 20:00" },
-    { day: t.location.friSat, time: "11:00 – 21:00" },
-    { day: t.location.sun, time: "11:00 – 18:00" },
+    { day: t.location.tueSat, time: t.location.tueSatTime },
+    { day: t.location.sun, time: t.location.sunTime },
   ];
 
   const CONTACT = [
