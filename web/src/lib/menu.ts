@@ -53,19 +53,30 @@ export type Category = {
  * su bloque, sin tener que buscar la foto otra vez.
  */
 const IMG = {
-  // Fotos reales del restaurante
-  tallarinHuancaina: asset("/images/misky-10.jpeg"),
-  postres: asset("/images/misky-7.jpeg"),
-  // Fotos de archivo (Unsplash), a sustituir por fotos propias cuando las haya
+  // ---- Fotos del propio restaurante: tienen prioridad sobre las de archivo.
+  // Vienen de la carpeta IMAGS-PLATOS de la raíz del proyecto.
   ajiGallina: asset("/images/dishes/aji-de-gallina.jpg"),
-  polloBrasa: asset("/images/dishes/pollo-a-la-brasa.jpg"),
+  bistecALoPobre: asset("/images/dishes/bistec-a-lo-pobre.jpg"),
+  carapulcra: asset("/images/dishes/carapulcra.jpg"),
+  frejoles: asset("/images/dishes/frejoles.jpg"),
   lomo: asset("/images/dishes/lomo-saltado.jpg"),
-  chaufa: asset("/images/dishes/arroz-chaufa.jpg"),
+  olluquito: asset("/images/dishes/olluquito.jpg"),
+  papaHuancaina: asset("/images/dishes/papa-a-la-huancaina.jpg"),
   salchipapa: asset("/images/dishes/salchipapa.jpg"),
+  secoDeCarne: asset("/images/dishes/seco-de-carne.jpg"),
+  tallarinHuancaina: asset("/images/dishes/tallarines-a-la-huancaina.jpg"),
+  tallarinSaltado: asset("/images/dishes/tallarin-saltado.jpg"),
+  tallarinesVerdes: asset("/images/dishes/tallarines-verdes.jpg"),
+  postres: asset("/images/misky-7.jpeg"), // vitrina de postres, foto del local
+
+  // ---- Fotos de archivo, solo donde todavía no hay foto propia
+  polloBrasa: asset("/images/dishes/pollo-a-la-brasa.jpg"),
+  chaufa: asset("/images/dishes/arroz-chaufa.jpg"),
   flatbread: asset("/images/dishes/flatbread.jpg"),
   fries: asset("/images/dishes/papas-fritas.jpg"),
   incaKola: asset("/images/dishes/inca-kola.jpg"),
-  // Platos retirados de la carta: fotos guardadas por si vuelven
+
+  // ---- Platos retirados de la carta: fotos guardadas por si vuelven
   ceviche: asset("/images/dishes/ceviche.jpg"),
   causa: asset("/images/dishes/causa.jpg"),
   sopa: asset("/images/dishes/sopa.jpg"),
@@ -99,7 +110,6 @@ const CARTA: CategoryInput[] = [
           "Pollo entero a la brasa acompañado de papas y ensalada. Ideal para compartir en familia.",
         price: 33.99,
         image: IMG.polloBrasa,
-        featured: true,
       },
       {
         id: 102,
@@ -123,7 +133,6 @@ const CARTA: CategoryInput[] = [
           "1/4 de pollo a la brasa con arroz chaufa y papas fritas. El combo favorito de la casa.",
         price: 15.0,
         image: IMG.chaufa,
-        featured: true,
       },
     ],
   },
@@ -147,7 +156,8 @@ const CARTA: CategoryInput[] = [
         description:
           "Tallarines salteados al wok estilo criollo con carne, verduras y sillao.",
         price: 18.0,
-        image: IMG.chaufa,
+        image: IMG.tallarinSaltado,
+        featured: true,
       },
       {
         id: 203,
@@ -187,12 +197,16 @@ const CARTA: CategoryInput[] = [
         description:
           "Guiso tradicional de olluco con un toque andino, a elegir con carne o con pollo.",
         price: 16.0,
+        image: IMG.olluquito,
+        featured: true,
       },
       {
         id: 304,
         name: "Carapulcra",
         description: "Guiso ancestral de papa seca con cerdo, maní y ají panca.",
         price: 15.0,
+        image: IMG.carapulcra,
+        featured: true,
         spicy: true,
       },
       {
@@ -201,6 +215,8 @@ const CARTA: CategoryInput[] = [
         description:
           "Frejoles cremosos cocinados a fuego lento, servidos con arroz.",
         price: 14.0,
+        image: IMG.frejoles,
+        featured: true,
       },
       {
         id: 306,
@@ -215,6 +231,8 @@ const CARTA: CategoryInput[] = [
         description:
           "Carne guisada lentamente al culantro y ají amarillo, tierna y jugosa, con arroz.",
         price: 17.0,
+        image: IMG.secoDeCarne,
+        featured: true,
       },
       {
         id: 311,
@@ -230,6 +248,8 @@ const CARTA: CategoryInput[] = [
         description:
           "Bistec a la plancha coronado con huevo frito, con plátano frito, papas fritas y arroz.",
         price: 18.0,
+        image: IMG.bistecALoPobre,
+        featured: true,
       },
       {
         id: 308,
@@ -238,6 +258,7 @@ const CARTA: CategoryInput[] = [
           "Clásica salchipapa: papas fritas con salchicha y cremas de la casa.",
         price: 14.0,
         image: IMG.salchipapa,
+        featured: true,
       },
     ],
   },
@@ -261,6 +282,8 @@ const CARTA: CategoryInput[] = [
         description:
           "Pasta en salsa verde de albahaca y espinaca al estilo peruano.",
         price: 14.0,
+        image: IMG.tallarinesVerdes,
+        featured: true,
       },
     ],
   },
@@ -275,6 +298,8 @@ const CARTA: CategoryInput[] = [
         description:
           "Papa sancochada bañada en cremosa salsa de ají amarillo y queso.",
         price: 12.0,
+        image: IMG.papaHuancaina,
+        featured: true,
       },
       {
         id: 604,
