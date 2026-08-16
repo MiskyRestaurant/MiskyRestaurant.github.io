@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Bitter, Oswald, Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
-import { asset } from "@/lib/asset";
 
 const bitter = Bitter({
   variable: "--font-bitter",
@@ -53,9 +52,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: "es_US",
   },
-  icons: {
-    icon: asset("/logos/isotipo.png"),
-  },
+  // El icono de la pestaña NO se declara aquí: Next lo toma de `src/app/icon.png`
+  // y genera él mismo la etiqueta, con la ruta base ya resuelta. Declararlo
+  // además a mano dejaba dos iconos compitiendo y el navegador elegía el otro.
 };
 
 export default function RootLayout({
